@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_products_colors",
+  "info": {
+    "name": "color",
+    "icon": "align-left"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    }
+  }
+}

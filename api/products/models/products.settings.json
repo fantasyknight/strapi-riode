@@ -1,0 +1,119 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "name": "products",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": false,
+    "privateAttributes": [
+      "id",
+      "name",
+      "slug"
+    ]
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "sale_price": {
+      "type": "decimal"
+    },
+    "short_description": {
+      "type": "text",
+      "default": "Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus liberpuro ate vol faucibus adipiscing."
+    },
+    "stock": {
+      "type": "biginteger",
+      "default": "1000"
+    },
+    "ratings": {
+      "type": "decimal",
+      "default": 0
+    },
+    "reviews": {
+      "type": "integer",
+      "default": 0
+    },
+    "sale_count": {
+      "type": "biginteger",
+      "default": "30"
+    },
+    "sku": {
+      "type": "string"
+    },
+    "is_new": {
+      "type": "boolean"
+    },
+    "is_featured": {
+      "type": "boolean"
+    },
+    "is_top": {
+      "type": "boolean"
+    },
+    "until": {
+      "type": "date"
+    },
+    "variants": {
+      "type": "component",
+      "repeatable": true,
+      "component": "products.variants"
+    },
+    "large_pictures": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "pictures": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "product_categories": {
+      "via": "products",
+      "collection": "product-categories",
+      "dominant": true
+    },
+    "tags": {
+      "collection": "product-tags",
+      "via": "products",
+      "dominant": true
+    },
+    "brands": {
+      "collection": "product-brands",
+      "via": "products",
+      "dominant": true
+    },
+    "small_pictures": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "demo": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

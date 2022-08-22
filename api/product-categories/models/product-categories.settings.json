@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_categories",
+  "info": {
+    "name": "product-categories",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "depth": {
+      "type": "integer"
+    },
+    "parent": {
+      "model": "product-categories",
+      "via": "children"
+    },
+    "children": {
+      "collection": "product-categories",
+      "via": "parent"
+    },
+    "products": {
+      "collection": "products",
+      "via": "product_categories"
+    },
+    "demo": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
